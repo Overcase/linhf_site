@@ -34,11 +34,7 @@ const base_conf = {
           // Compiles Sass to CSS
           'sass-loader',
         ],
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
+      }
     ]
   },
   plugins: [
