@@ -11,18 +11,42 @@ const base_conf = {
    */
   mode: 'none',
   entry: {
-    index: current_resolve('../src/index.js'),
-    main: current_resolve('../src/main.js'),
+    index: current_resolve('../src/index.ts'),
+    main: current_resolve('../src/main.ts'),
+  },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+   // 引入文件可以省略 后缀名
+    extensions: [".ts", ".tsx", ".js"]
   },
   output: {
     path: current_resolve('../dist'),
     filename: '[name].js',
   },
   module: {
-    rules: []
+    rules: [
+      { test: /\.(tsx|ts)?$/, loader: "ts-loader" },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+    ]
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      // 必须使用 绝对路径
+      template: current_resolve('../src/pages/document.html'),
+      filename:'index.html'
+    })
   ]
 };
 
