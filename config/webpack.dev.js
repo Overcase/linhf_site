@@ -7,9 +7,9 @@ const { current_resolve, log } = require('./conf_util');
 
 const DEV_CONF = merge({
   mode: 'development',
-  entry: {
-    index_dev: current_resolve('../src/index.dev.ts')
-  },
+  // entry: {
+  //   index_dev: current_resolve('../src/index.dev.ts')
+  // },
   /**
    * document @see https://webpack.js.org/configuration/devtool/#devtool
    */
