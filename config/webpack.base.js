@@ -11,13 +11,14 @@ const base_conf = {
    */
   mode: 'none',
   entry: {
-    index: current_resolve('../src/index.ts'),
-    main: current_resolve('../src/main.ts'),
+    index: current_resolve('../src/index.tsx'),
+    // main: current_resolve('../src/main.ts'),
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
-   // 引入文件可以省略 后缀名
-    extensions: [".ts", ".tsx", ".js"]
+    // 引入文件可以省略 后缀名
+    extensions: [".ts", ".tsx", ".js"],
+    modules: ['node_modules'],
   },
   output: {
     path: current_resolve('../dist'),
@@ -25,7 +26,7 @@ const base_conf = {
   },
   module: {
     rules: [
-      { test: /\.(tsx|ts)?$/, loader: "ts-loader" },
+      // { test: /\.(js|mjs|jsx|ts|tsx)?$/, loader: "ts-loader" },
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -34,6 +35,14 @@ const base_conf = {
           // Compiles Sass to CSS
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(js|mjs|jsx|ts|tsx)?$/,
+        exclude: /node_modules/,
+        // exclude: /@babel(?:\/|\\{1,2})runtime/,
+        use: [
+          'ts-loader',
+        ]
       }
     ]
   },
@@ -41,7 +50,7 @@ const base_conf = {
     new HtmlWebpackPlugin({
       // 必须使用 绝对路径
       template: current_resolve('../src/pages/document.html'),
-      filename:'index.html'
+      filename: 'index.html'
     })
   ]
 };
