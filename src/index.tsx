@@ -10,7 +10,7 @@ class App extends React.Component<IAppProps, IAppState> {
   public render(): any {
     return (
       <div>
-        Hello world
+        Ts config
       </div>
     )
   }
