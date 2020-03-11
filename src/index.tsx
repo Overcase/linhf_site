@@ -1,19 +1,8 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import './main'
-import './index.dev'
+import { Provider } from 'react-redux';
+import App from './app'
 
-interface IAppProps {}
-interface IAppState {}
-
-class App extends React.Component<IAppProps, IAppState> {
-  public render(): any {
-    return (
-      <div>
-        Hello world
-      </div>
-    )
-  }
-}
-
-render(<App />, document.getElementById('root'))
+render((
+  <App />
+), document.getElementById('root'))

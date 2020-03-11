@@ -15,12 +15,10 @@ const DEV_CONF = merge({
    */
   devtool: 'inline-source-map',
   devServer: {
-      contentBase: current_resolve('../dist'),
-      port: dev_port,
-      proxy: dev_proxy,
+    contentBase: current_resolve('../dist'),
+    port: dev_port,
+    proxy: dev_proxy,
   },
 }, BASE_CONF)
-
-log(DEV_CONF)
 
 module.exports = DEV_CONF;

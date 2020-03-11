@@ -17,6 +17,4 @@ const PROD_CONF = merge({
   },
 }, BASE_CONF)
 
-log(PROD_CONF)
-
 module.exports = PROD_CONF;
