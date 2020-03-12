@@ -1,28 +1,24 @@
 {
   "compileOnSave": true,
-  "compilerOptions":  {
+  "compilerOptions": {
     "outDir": "./public",
     "noImplicitAny": true,
+    "experimentalDecorators": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
     "sourceMap": true,
     "removeComments": true,
+    "baseUrl": ".",
+    "paths": {
+      "@action/*": ["./src/redux/action/*"],
+      "@/*": ["./src/*"]
+    }
     // "preserveConstEnums": true,
-    // "outFile": "./public/index.js",
   },
-  "include": [
-      "src/**/*"
-  ],
-  "exclude": [
-      "node_modules",
-      "**/*.spec.ts",
-      "./dist/**/*",
-      "./public/**/*" 
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "./dist/**/*", "./public/**/*"],
   /** 需要指定 files */
-  "files": [
-    "./src/index.tsx" 
-  ]
+  "files": ["./src/index.tsx"]
 }

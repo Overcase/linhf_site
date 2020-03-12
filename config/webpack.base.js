@@ -1,8 +1,18 @@
 const webpack = require('webpack'); //to access webpack runtime
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 // util
 const { current_resolve, log } = require('./conf_util');
+
+
+const actionDir = current_resolve('../src/redux/action/');
+const srcDir = current_resolve('../src/');
+
+const _alias = {
+  action$: actionDir,
+  src$: srcDir,
+}
+
+console.log(actionDir, srcDir, 'srcDir')
 
 /** document @see https://webpack.js.org/configuration/ */
 const base_conf = {
@@ -17,8 +27,12 @@ const base_conf = {
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
     // 引入文件可以省略 后缀名
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".scss", '.json'],
     modules: ['node_modules'],
+    alias: {
+      '@action': actionDir,
+      '@': srcDir,
+    }
   },
   output: {
     path: current_resolve('../dist'),
@@ -41,7 +55,7 @@ const base_conf = {
         exclude: /node_modules/,
         // exclude: /@babel(?:\/|\\{1,2})runtime/,
         use: [
-          'ts-loader',
+          'babel-loader',
         ]
       }
     ]
