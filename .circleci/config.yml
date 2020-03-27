@@ -17,6 +17,12 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
+      - run:
+          name: Ts build
+          command: npm run tsc
+      - run:
+          name: Ts build
+          command: npm run build
 
   deploy:
     working_directory: ~/repo
