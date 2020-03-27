@@ -23,9 +23,9 @@ jobs:
           paths:
             - node_module
 
-      - run:
-          name: TS Build
-          command: npm run tsc
+      # - run:
+      #     name: TS Build
+      #     command: npm run tsc
 
       - run:
           name: Build src with NPM

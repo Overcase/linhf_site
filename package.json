@@ -9,8 +9,8 @@
     "build": "npm run cleanBuild && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "tsc": "npm run cleanTsc && tsc -p tsconfig.json",
     "cleanAll": "rimraf dist public",
-    "cleanBuild": "rimraf dist",
-    "cleanTsc": "rimraf public"
+    "cleanBuild": "rimraf dist/*",
+    "cleanTsc": "rimraf public/*"
   },
   "repository": {
     "type": "git",

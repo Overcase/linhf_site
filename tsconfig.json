@@ -2,20 +2,23 @@
   "compileOnSave": true,
   "compilerOptions": {
     "outDir": "./public",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noImplicitAny": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "removeComments": true,
     "baseUrl": ".",
     "paths": {
       "@action/*": ["./src/redux/action/*"],
       "@/*": ["./src/*"]
-    }
-    // "preserveConstEnums": true,
+    },
+    "preserveConstEnums": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "./dist/**/*", "./public/**/*"],

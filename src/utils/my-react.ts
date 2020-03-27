@@ -1,24 +1,21 @@
-const myReact =(function () {
-  let _val;
+const myReact = (function() {
+  let _val: any
 
   return {
-    render(Component) {
-
+    render(Component: any) {
       // console.log(Component(), 'Component')
       // const Comp = Component()
       return Component
-    }
-    ,
-    useState(initValue) {
+    },
+    useState(initValue: any) {
       _val = _val || initValue
-      function setState(newVal) {
+      function setState(newVal: any) {
         _val = newVal
       }
-  
+
       return [_val, setState]
     }
   }
- 
-})();
+})()
 
-export default myReact;
+export default myReact
