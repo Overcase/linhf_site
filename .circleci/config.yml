@@ -1,39 +1,32 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
-    # The primary container is an instance of the first image listed. The job's commands run in this container.
+  
     docker:
       - image: circleci/node:10.2.1
       # The secondary container is an instance of the second listed image which is run in a common network where ports exposed on the primary container are available on localhost.
+
+      working_directory: ~/repo
+      # The primary container is an instance of the first image listed. The job's commands run in this container.
+
     steps:
       - checkout
+
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
+
       - run:
-          name: Install npm pkg
+          name: Install dependencies with NPM
           command: npm install
+
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-      - run:
-          name: Ts build
-          command: npm run tsc
-      - run:
-          name: Ts build
-          command: npm run build
-
-  deploy:
-    working_directory: ~/repo
-
-    docker:
-      - image: circleci/node:10.2.1
-
-    steps:
-      - run:
-          name: Ts build
-          command: npm run tsc
-      - run:
-          name: Ts build
-          command: npm run build
+            
+workflows:
+  version: 2  
+  Build and Test:
+    jobs:
+      - tsc
+      - build
