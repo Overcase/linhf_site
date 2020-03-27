@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config config/webpack.dev.js",
     "start": "npm run dev",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "tsc": "tsc -p tsconfig.json"
+    "build": "npm run cleanBuild && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "tsc": "npm run cleanTsc && tsc -p tsconfig.json",
+    "cleanAll": "rimraf dist public",
+    "cleanBuild": "rimraf dist",
+    "cleanTsc": "rimraf public"
   },
   "repository": {
     "type": "git",
@@ -63,6 +66,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rimraf": "^3.0.2"
   }
 }
