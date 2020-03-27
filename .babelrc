@@ -6,7 +6,9 @@
   ],
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    // "@babel/plugin-proposal-optional-chaining" 缩写形式
+    "@babel/proposal-optional-chaining"
     // "@babel/plugin-transform-typescript"
   ]
 }
