@@ -24,12 +24,12 @@ jobs:
             - node_module
 
       - run:
-        name: TS Build
-        command: npm run tsc
+          name: TS Build
+          command: npm run tsc
 
       - run:
-        name: Build src with NPM
-        command: npm run build
+          name: Build src with NPM
+          command: npm run build
 
 workflows:
   version: 2
