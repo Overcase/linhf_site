@@ -79,7 +79,7 @@ jobs:
     machine:
       enabled: true
     working_directory: ~/workspace
-    
+
     steps:
       - attach_workspace:
           at: ~/workspace/dist
@@ -99,6 +99,6 @@ workflows:
       - build2:
           requires:
             - build1
-      - deploy1
+      - deploy1:
           requires:
             - build2
