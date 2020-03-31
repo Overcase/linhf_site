@@ -49,10 +49,10 @@ jobs:
             - .
 
     # 指定 branch
-    branches:
-      only:
-        - master
-        - /optimization-.*/
+    # branches:
+    #   only:
+    #     - master
+    #     - /optimization-.*/
 
   build2: # job name
     executor: node-executor
