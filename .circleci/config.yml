@@ -29,6 +29,7 @@ jobs:
       #     name: TS Build
       #     command: npm run tsc
 
+      # 存储工作空间供下游容器使用
       - persist_to_workspace: # Persist the specified paths (workspace/echo-output)
           # into the workspace  for use in downstream job. Must be an absolute path,
           # or relative path from working_directory. This is a directory on the container which is
@@ -36,8 +37,8 @@ jobs:
           root:
             .
             # Must be relative path from root
-          # paths:
-          #   - .
+          paths:
+            - .
 
   build2: # job name
     docker:
@@ -46,6 +47,7 @@ jobs:
     working_directory: ~/workspace
 
     steps:
+      # 使用attach_workspace:步骤将工作空间附加到下游容器中.
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: ~/workspace
