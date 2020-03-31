@@ -36,8 +36,8 @@ jobs:
           root:
             .
             # Must be relative path from root
-          paths:
-            - .
+          # paths:
+          #   - .
 
   build2: # job name
     docker:
