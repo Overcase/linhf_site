@@ -34,8 +34,6 @@ jobs:
       - image: circleci/node:10.2.1
 
     steps:
-      - checkout
-
       - run:
           name: Build src with NPM
           command: npm run build
