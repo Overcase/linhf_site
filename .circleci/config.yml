@@ -33,8 +33,6 @@ jobs:
     docker:
       - image: circleci/node:10.2.1
 
-    working_directory: ~/repo
-
     steps:
       - run:
           name: Build src with NPM
