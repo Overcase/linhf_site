@@ -3,6 +3,7 @@ version: 2
 # orbs:
 #   node-10: circleci/node:10.2.1
 
+# 提取公用 executor
 executors:
   node-executor:
     docker:
@@ -63,6 +64,11 @@ jobs:
           name: Build src with NPM
           command: npm run build
 
+    # 指定 branch
+    branches:
+    only:
+      - master
+      - /optimization-*/
   # deploy1:
   #   steps:
 
