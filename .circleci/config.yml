@@ -75,19 +75,19 @@ jobs:
           paths:
             - ./dist
 
-    deploy1:
-      working_directory: ~/workspace
+  deploy1:
+    working_directory: ~/workspace
 
-      steps:
-        - attach_workspace:
-            at: ~/workspace/dist
-        - add_ssh_keys:
-            fingerprints:
-              - '1d:2b:01:49:0b:dd:0d:db:44:ec:f5:82:0a:73:41:29'
-        - run:
-            name: Deploy Over SSH
-            command: |
-              ssh $SSH_USER@$SSH_HOST "pwd"
+    steps:
+      - attach_workspace:
+          at: ~/workspace/dist
+      - add_ssh_keys:
+          fingerprints:
+            - '1d:2b:01:49:0b:dd:0d:db:44:ec:f5:82:0a:73:41:29'
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST "pwd"
 
 workflows:
   version: 2.1
