@@ -34,10 +34,10 @@ jobs:
           # or relative path from working_directory. This is a directory on the container which is
           # taken to be the root directory of the workspace.
           root:
-            workspace
+            ~/workspace
             # Must be relative path from root
           paths:
-            - echo-output
+            - .
 
   build2: # job name
     docker:
@@ -46,7 +46,7 @@ jobs:
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: /tmp/workspace
+          at: ~/workspace
 
       - run:
           name: Build src with NPM
