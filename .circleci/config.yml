@@ -69,8 +69,20 @@ jobs:
           name: Build src with NPM
           command: npm run build
 
+      # 存储工作空间供下游容器使用
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./dist
+
   # deploy1:
+  #   working_directory: ~/workspace
   #   steps:
+  #     - attach_workspace:
+  #         at: ~/workspace/dist
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - '25:4f:90:64:dc:b0:94:ce:64:6b:50:c9:48:97:19:c3'
 
 workflows:
   version: 2.1
