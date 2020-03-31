@@ -76,6 +76,7 @@ jobs:
             - ./dist
 
   deploy1:
+    executor: node-executor
     working_directory: ~/workspace
 
     steps:
