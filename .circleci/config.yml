@@ -76,9 +76,10 @@ jobs:
             - ./dist
 
   deploy1:
-    executor: node-executor
+    machine:
+      enabled: true
     working_directory: ~/workspace
-
+    
     steps:
       - attach_workspace:
           at: ~/workspace/dist
@@ -99,3 +100,5 @@ workflows:
           requires:
             - build1
       - deploy1
+          requires:
+            - build2
