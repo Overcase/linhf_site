@@ -66,9 +66,10 @@ jobs:
 
     # 指定 branch
     branches:
-    only:
-      - master
-      - /optimization-*/
+      only:
+        - master
+        - /optimization-*/
+
   # deploy1:
   #   steps:
 
