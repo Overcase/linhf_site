@@ -1,4 +1,8 @@
 version: 2
+
+# orbs:
+#   node-10: circleci/node:10.2.1
+
 jobs:
   build1: # job name
     docker:
@@ -38,7 +42,7 @@ jobs:
             .
             # Must be relative path from root
           paths:
-            - ./start-env
+            - .
 
   build2: # job name
     docker:
