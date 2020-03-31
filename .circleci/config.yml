@@ -34,7 +34,7 @@ jobs:
           # or relative path from working_directory. This is a directory on the container which is
           # taken to be the root directory of the workspace.
           root:
-            ~/workspace
+            .
             # Must be relative path from root
           paths:
             - .
@@ -42,6 +42,8 @@ jobs:
   build2: # job name
     docker:
       - image: circleci/node:10.2.1
+
+    working_directory: ~/workspace
 
     steps:
       - attach_workspace:
