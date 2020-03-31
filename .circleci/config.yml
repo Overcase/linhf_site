@@ -68,7 +68,7 @@ jobs:
     branches:
       only:
         - master
-        - /optimization-*/
+        - /optimization-.*/
 
   # deploy1:
   #   steps:
