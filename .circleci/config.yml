@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 # orbs:
 #   node-10: circleci/node:10.2.1
@@ -7,9 +7,8 @@ version: 2
 executors:
   node-executor:
     docker:
-      - image:
-          circleci/node:10.2.1
-          # The secondary container is an instance of the second listed image which is run in a common network where ports exposed on the primary container are available on localhost.
+      - image: circleci/node:10.2.1 # The secondary container is an instance of the second listed image which is run in a common network where ports exposed on the primary container are available on localhost.
+
 jobs:
   build1: # job name
     executor: node-executor
@@ -75,7 +74,7 @@ jobs:
   #   steps:
 
 workflows:
-  version: 2
+  version: 2.1
   Build and Deploy:
     jobs:
       - build1
