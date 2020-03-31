@@ -50,10 +50,11 @@ jobs:
             - .
 
     # 指定 branch
-    branches:
-      only:
-        - master
-        - /optimization-.*/
+    filters:
+      branches:
+        only:
+          - master
+          - /optimization-.*/
 
   build2: # job name
     executor: node-executor
