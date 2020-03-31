@@ -49,6 +49,12 @@ jobs:
           paths:
             - .
 
+    # 指定 branch
+    branches:
+      only:
+        - master
+        - /optimization-.*/
+
   build2: # job name
     executor: node-executor
 
@@ -63,12 +69,6 @@ jobs:
       - run:
           name: Build src with NPM
           command: npm run build
-
-    # 指定 branch
-    branches:
-      only:
-        - master
-        - /optimization-.*/
 
   # deploy1:
   #   steps:
