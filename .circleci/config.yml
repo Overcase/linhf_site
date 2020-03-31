@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:10.2.1
       # The secondary container is an instance of the second listed image which is run in a common network where ports exposed on the primary container are available on localhost.
 
-    working_directory: ~/repo
+    # working_directory: ~/repo
     # The primary container is an instance of the first image listed. The job's commands run in this container.
 
     steps:
@@ -29,11 +29,25 @@ jobs:
       #     name: TS Build
       #     command: npm run tsc
 
+      - persist_to_workspace: # Persist the specified paths (workspace/echo-output)
+          # into the workspace  for use in downstream job. Must be an absolute path,
+          # or relative path from working_directory. This is a directory on the container which is
+          # taken to be the root directory of the workspace.
+          root:
+            workspace
+            # Must be relative path from root
+          paths:
+            - echo-output
+
   build2: # job name
     docker:
       - image: circleci/node:10.2.1
 
     steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+
       - run:
           name: Build src with NPM
           command: npm run build
