@@ -54,7 +54,7 @@ jobs:
       # 使用attach_workspace:步骤将工作空间附加到下游容器中.
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ~/workspace/start-env
+          at: ~/workspace
 
       - run:
           name: Build src with NPM
@@ -68,3 +68,4 @@ workflows:
       - build2:
           requires:
             - build1
+      - deploy1
