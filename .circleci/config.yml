@@ -98,6 +98,6 @@ workflows:
       # - build2:
       #     requires:
       #       - build1
-      - deploy1:
-          # requires:
-          #   - build2
+      - deploy1
+        # requires:
+        #   - build2
