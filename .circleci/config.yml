@@ -88,7 +88,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            echo $SSH_USER@$SSH_HOST
+            ssh $SSH_USER@$SSH_HOST "pwd"
 
 workflows:
   version: 2.1
