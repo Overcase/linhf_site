@@ -94,10 +94,10 @@ workflows:
   version: 2.1
   Build and Deploy:
     jobs:
-      - build1
-      - build2:
-          requires:
-            - build1
+      # - build1
+      # - build2:
+      #     requires:
+      #       - build1
       - deploy1:
-          requires:
-            - build2
+          # requires:
+          #   - build2
