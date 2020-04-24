@@ -20,8 +20,10 @@ const base_conf = {
    * production | development | none
    */
   mode: 'none',
+  // 基础目录，绝对路径，用于从配置中解析入口起点(entry point)和 loader
+  context: current_resolve('../src'),
   entry: {
-    index: current_resolve('../src/index.tsx'),
+    index: './index.tsx',
     // main: current_resolve('../src/main.ts'),
   },
   resolve: {
@@ -63,7 +65,8 @@ const base_conf = {
   plugins: [
     new HtmlWebpackPlugin({
       // 必须使用 绝对路径
-      template: current_resolve('../src/pages/document.html'),
+      // template: current_resolve('../src/pages/document.html'),
+      template: './pages/document.html',
       filename: 'index.html'
     })
   ]

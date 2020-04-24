@@ -18,6 +18,7 @@ const DEV_CONF = merge({
     contentBase: current_resolve('../dist'),
     port: dev_port,
     proxy: dev_proxy,
+    open: 'Google Chrome'
   },
 }, BASE_CONF)
 
