@@ -6,7 +6,7 @@ import Routers from '../../routes'
 function Content(params: any) {
   return (
     <section className='content-wrap'>
-      content
+      {/* content */}
       <Switch>
         {Routers.modal()}
         <Redirect

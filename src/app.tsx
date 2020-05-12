@@ -18,12 +18,12 @@ function App() {
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
         <>
-          <input type="text" onInput={(e: any) => {
+          {/* <input type="text" onInput={(e: any) => {
             setRoutePath(e.target.value)
           }} />
           <Link to={routePath}>
             {routePath}
-          </Link>
+          </Link> */}
         </>
         <Switch>
           {Routers.root()}

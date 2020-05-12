@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-10-25 10:10:05
+ * @LastEditTime: 2020-05-12 15:20:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /webpack_study/myproject/config/webpack.base.js
+ */
 const webpack = require('webpack'); //to access webpack runtime
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // util
@@ -12,7 +20,7 @@ const _alias = {
   src$: srcDir,
 }
 
-console.log(actionDir, srcDir, 'srcDir')
+// console.log(actionDir, srcDir, 'srcDir')
 
 /** document @see https://webpack.js.org/configuration/ */
 const base_conf = {
@@ -46,6 +54,7 @@ const base_conf = {
       {
         test: /\.s[ac]ss$/i,
         use: [
+          'style-loader',
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
